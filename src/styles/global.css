@@ -558,3 +558,49 @@ body[data-surface="cards"] .section:nth-of-type(even) > .container::after {
     height:5px;
   }
 }
+
+
+/* =========================================================
+   v4.1 — FONDO RUPESTRE DEFINITIVO
+   Imagen creada específicamente para Javier.
+   CSS solo regula tono/contraste; no añade glifos artificiales.
+   ========================================================= */
+
+body[data-bg="scenic"]::before {
+  background:
+    linear-gradient(
+      rgba(103, 72, 50, .22),
+      rgba(86, 60, 44, .30)
+    ),
+    var(--visual-bg-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: saturate(.82) contrast(.96) brightness(.90);
+}
+
+/* Desactivar las capas sintéticas anteriores: la identidad está en la imagen. */
+body[data-bg="scenic"]::after,
+body[data-bg="scenic"] .site-header::after {
+  content: none !important;
+}
+
+/* Separación suficiente entre fondo rupestre y lectura. */
+body[data-surface="cards"] .section > .container {
+  background:
+    linear-gradient(
+      112deg,
+      rgba(248, 239, 225, .94),
+      rgba(239, 222, 201, .90)
+    );
+  border-color: rgba(94, 65, 47, .28);
+}
+
+/* En móvil priorizar lectura y evitar que un único petroglifo domine por recorte. */
+@media (max-width: 700px) {
+  body[data-bg="scenic"]::before {
+    background-position: 52% center;
+    filter: saturate(.76) contrast(.94) brightness(.88);
+  }
+}
