@@ -342,107 +342,99 @@ body[data-image="hero"] :is(.portrait, .cover) {
 }
 
 
+
 /* =========================================================
-   CAPA DE IDENTIDAD — JAVIER SERRANO
-   Jujuy ↔ González Catán · terruño · migración · historia
+   CAPA DE IDENTIDAD — JAVIER SERRANO v3
+   Camino · ventana · terruño · memoria · conurbano
    ========================================================= */
 
-body[data-bg="textured"]::before {
+body[data-bg="scenic"]::before {
   background:
-    linear-gradient(152deg, transparent 0 52%, rgba(82,102,107,.12) 52% 66%, transparent 66%),
-    radial-gradient(circle at 14% 16%, rgba(211,163,74,.34) 0 8%, transparent 28%),
-    radial-gradient(circle at 88% 84%, rgba(82,102,107,.22) 0 10%, transparent 30%),
-    repeating-linear-gradient(0deg, rgba(45,39,33,.035) 0 1px, transparent 1px 6px),
-    linear-gradient(135deg, #e5d1aa 0%, #d8c6a4 46%, #b9afa0 100%);
+    radial-gradient(circle at 14% 16%, rgba(201,150,69,.28) 0 7%, transparent 25%),
+    linear-gradient(180deg,
+      #879aa2 0%,
+      #7b8d91 24%,
+      #6f7962 24.5%,
+      #7b8063 39%,
+      #b69a73 39.5%,
+      #c9b494 100%);
+  background-size: cover;
 }
 
-/* Trama abstracta: eco de tejido, mapa y recorrido. */
-body[data-bg="textured"]::after {
+body[data-bg="scenic"]::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
   pointer-events: none;
-  opacity: .32;
   background:
-    repeating-linear-gradient(45deg,
-      transparent 0 18px,
-      rgba(169,79,45,.12) 18px 20px,
-      transparent 20px 38px),
-    repeating-linear-gradient(-45deg,
-      transparent 0 26px,
-      rgba(104,112,77,.08) 26px 28px,
-      transparent 28px 52px);
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.2));
+    linear-gradient(153deg, transparent 0 44%, rgba(42,50,51,.14) 44.2% 45%, transparent 45.2%),
+    linear-gradient(206deg, transparent 0 54%, rgba(42,50,51,.1) 54.2% 55%, transparent 55.2%),
+    linear-gradient(180deg, rgba(243,232,214,.08), rgba(243,232,214,.18));
 }
 
 body[data-surface="cards"] .section > .container {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(110deg,
-      rgba(241,230,210,.96),
-      rgba(241,230,210,.86));
-  border: 1px solid rgba(182,157,120,.82);
-  border-left: 7px solid var(--identity-earth);
-  border-radius: 18px 26px 26px 18px;
-}
-
-body[data-surface="cards"] .section:nth-of-type(2) > .container {
-  border-left-color: var(--identity-ochre);
-}
-
-body[data-surface="cards"] .section:nth-of-type(3) > .container {
-  border-left-color: var(--identity-urban);
+  background: linear-gradient(110deg, rgba(243,232,214,.95), rgba(243,232,214,.86));
+  border: 1px solid rgba(181,156,121,.82);
+  border-radius: 12px;
+  box-shadow: var(--visual-panel-shadow);
 }
 
 body[data-surface="cards"] .section > .container::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0;
-  width: min(300px, 38%);
-  height: 8px;
-  background:
-    repeating-linear-gradient(90deg,
-      var(--identity-earth) 0 24px,
-      var(--identity-ochre) 24px 42px,
-      var(--identity-olive) 42px 58px,
-      var(--identity-urban) 58px 76px);
+  inset: 0 auto 0 0;
+  width: 8px;
+  background: linear-gradient(var(--identity-earth),var(--identity-ochre),var(--identity-olive),var(--identity-sky));
+}
+
+body[data-surface="cards"] .section:nth-of-type(2) > .container::before {
+  background: linear-gradient(var(--identity-sky),var(--identity-road),var(--identity-earth));
+}
+
+body[data-surface="cards"] .section:nth-of-type(3) > .container::before {
+  background: linear-gradient(var(--identity-olive),var(--identity-sand),var(--identity-earth));
+}
+
+body[data-character="organic"] {
+  --radius: 18px;
+  --visual-panel-shadow: 0 24px 60px rgba(45,39,33,.16);
+}
+
+body[data-character="organic"] .button {
+  border-radius: 6px;
 }
 
 body[data-character="organic"] h1,
 body[data-character="organic"] h2 {
-  letter-spacing: -.018em;
+  letter-spacing: -.022em;
 }
 
 body[data-character="organic"] .eyebrow {
   color: var(--identity-earth);
-  letter-spacing: .18em;
+  letter-spacing: .17em;
+}
+
+body[data-image="integrated"] :is(.portrait,.cover) {
+  opacity: 1;
 }
 
 body[data-image="integrated"] .media-item::after {
-  inset: 7% -5% -7% 7%;
-  border-radius: 34% 66% 38% 62% / 48% 36% 64% 52%;
-  background:
-    linear-gradient(145deg,
-      rgba(211,163,74,.38),
-      rgba(169,79,45,.22) 48%,
-      rgba(82,102,107,.22));
+  content: none;
 }
 
 .project-status {
-  background: rgba(47,59,61,.92) !important;
-  color: #efe4d1 !important;
-  border-color: rgba(255,255,255,.1) !important;
+  background: rgba(46,55,57,.94) !important;
+  color: #f2e6d2 !important;
+  border-color: rgba(255,255,255,.12) !important;
 }
 
 .project-status strong {
-  color: #fff7e8 !important;
+  color: #fff9ef !important;
 }
 
-@media (max-width: 919px) {
-  body[data-surface="cards"] .section > .container {
-    border-left-width: 5px;
-  }
+@media(max-width:919px){
+  body[data-surface="cards"] .section > .container{border-radius:10px}
 }
