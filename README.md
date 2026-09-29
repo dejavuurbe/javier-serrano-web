@@ -1,0 +1,223 @@
+# Plantilla web para autores
+
+Repositorio maestro para crear sitios web independientes de autores y proyectos literarios.
+
+## Objetivo
+
+Construir una base reutilizable, ligera y fácil de adaptar para cada autor, manteniendo separados los repositorios de cada cliente.
+
+## Arquitectura base — Web Nivel 1
+
+La Web Nivel 1 utiliza dos páginas reales:
+
+1. **Inicio** — presentación del autor, obra principal, compra y biografía.
+2. **Actividad** — recorrido público, fuentes, redes y contacto.
+
+La navegación superior se mantiene deliberadamente simple: nombre del autor, Actividad y Contacto.
+
+### Escala vertical estándar
+
+El caso piloto validó la composición a **100 % de zoom** en escritorio. Se fija esta referencia:
+
+- encabezado: `76px`;
+- sección completa: `calc(100svh - 76px)`;
+- media sección: 50 % de la altura útil de una sección completa;
+- padding vertical compacto de sección completa: `clamp(1.8rem, 3.2vh, 2.8rem)`;
+- padding vertical compacto de media sección: `clamp(1rem, 2vh, 1.8rem)`;
+- desde 919 px hacia abajo, no se fuerza altura: el contenido vuelve a flujo natural.
+
+Una “sección completa” es un **presupuesto visual**: el contenido debe diseñarse para entrar completo en el campo visible cuando sea razonable. No se debe recortar contenido ni reducir legibilidad para forzarlo. Si una pantalla contiene dos bloques equivalentes, cada uno puede tomar una **media sección**.
+
+Clases disponibles:
+- `.section-screen` — referencia de sección completa;
+- `.section-half` — referencia de media sección;
+- añadir `.compact` cuando se necesite el padding vertical compacto validado.
+
+### Datos editoriales del libro
+
+La Web Nivel 1 admite dentro de la propia sección Libro/Obra los siguientes datos, solo cuando existan y estén verificados: género, año, páginas, ISBN y editorial/tipo de edición. Se muestran como ficha compacta para dar mayor presencia editorial al libro sin sumar páginas ni secciones.
+
+### Regla comercial estructural
+
+La **venta pertenece al libro, no al autor**. Los CTA de compra deben ubicarse dentro de la sección de la obra, junto a portada, título, sinopsis y datos editoriales. La presentación del autor se utiliza para identidad y orientación, no para acciones comerciales de compra.
+
+### Correo oficial e identidad verificable
+
+La sección Contacto no sirve solamente para recibir mensajes. El correo oficial visible es también una pieza de **identidad digital verificable** del autor.
+
+Funciones:
+- contacto con lectores, prensa, bibliotecas, instituciones y organizadores;
+- referencia pública de identidad;
+- apoyo para reclamar o validar perfiles de autor en plataformas externas;
+- coherencia entre web oficial, tiendas, redes y servicios editoriales;
+- ayuda para distinguir al autor frente a homónimos.
+
+Cuando exista dominio propio, se prioriza un correo del tipo `nombre@dominio.com`. Si el autor usa Gmail u otro proveedor, puede mostrarse igualmente si es el correo real vinculado a su identidad autoral.
+
+En prototipos el correo pendiente se muestra como tal y no tiene enlace. Nunca se usa un correo ficticio como si fuera real.
+
+## Principios
+
+- Identidad del autor por encima de una estética genérica.
+- Identidad editorial extraída de la obra, no solo de la portada.
+- Diseño adaptable a celular y escritorio.
+- SEO básico desde el inicio.
+- Accesibilidad y buen rendimiento.
+- Cada cliente se crea en un repositorio independiente a partir de esta plantilla.
+- Durante el prototipo, los faltantes se muestran como `Pendiente`; en entrega se completan o se descartan expresamente. Nunca se inventan datos.
+
+## Flujo de trabajo
+
+1. Diagnóstico de identidad digital del autor.
+2. Recolección y validación de contenidos.
+3. Extracción de identidad de la obra.
+4. Adaptación visual y editorial.
+5. Revisión en una rama de desarrollo.
+6. Validación automática del build.
+7. Publicación de la versión aprobada en `main`.
+
+## Principio rector — “Ahí está todo”
+
+La plantilla se construye como centro digital del autor. El autor debe poder dar su dominio —o indicar que busquen su nombre + obra— y desde allí el visitante debe poder resolver identidad, obra, acceso/compra, trayectoria relevante, redes y contacto.
+
+Recorrido funcional: **INTERÉS → IDENTIFICACIÓN → COMPRENSIÓN / CONFIANZA → ACCESO A LA OBRA → COMPRA O LECTURA → CONTINUIDAD DEL VÍNCULO**.
+
+La arquitectura se organiza por funciones reutilizables, no por la estética de un caso piloto: **IDENTIFICAR, INTERESAR, CONVENCER, ACCEDER, VINCULAR y RECUPERAR**. Los datos del cliente, la identidad visual, los componentes y la capa semántica deben permanecer separados.
+
+El modelo de datos admite múltiples obras y múltiples antecedentes desde el origen. Clase 1 expone una selección deliberadamente limitada; las clases superiores pueden ampliar esa representación sin reconstruir la identidad desde cero.
+
+## Recuperabilidad de identidad — recuerdo imperfecto o incompleto
+
+La función **RECUPERAR** no se limita a errores ortográficos. Una persona puede recordar correctamente solo una parte de la identidad: el nombre de pila y la obra, el apellido y la obra, parte del título o algún dato distintivo.
+
+Durante el diagnóstico de cada autor debe construirse un **mapa de recuperabilidad** y probar combinaciones razonables como:
+
+- nombre + obra;
+- apellido + obra;
+- nombre completo + obra;
+- variantes ortográficas previsibles del nombre, apellido o título;
+- título parcial o variante razonable;
+- cuando aporte valor real, obra + dato distintivo verificado (género, temática, localidad, editorial u otro).
+
+Las variantes no deben trasladarse mecánicamente a la presentación humana ni utilizarse como relleno de palabras clave. Primero se prueban para detectar fallos reales de recuperación. Después se decide qué señales legítimas conviene reforzar mediante contenido, metadatos, relaciones semánticas y capa máquina.
+
+La identidad visible conserva siempre la forma canónica correcta. La capa técnica puede registrar variantes razonables y relaciones útiles para desambiguación y recuperación, sin inventar datos ni prometer posiciones concretas en buscadores.
+
+La prueba de entrega correspondiente se denomina **“recuerdo imperfecto o incompleto”**: se verifica si la identidad puede reconstruirse con información plausible pero parcial o ligeramente incorrecta.
+
+
+## Escala visual y presupuesto de contenido
+
+La referencia de altura visible, tipografías, interlineado y cantidad de texto por sección está documentada en [GUIA_ESCALA_VISUAL.md](./GUIA_ESCALA_VISUAL.md). Debe consultarse antes de adaptar un nuevo autor para evitar recalibraciones manuales innecesarias.
+
+
+
+
+### Circuito web ↔ redes — continuidad del vínculo
+
+La web funciona como **centro de identidad digital** y las redes como espacios de continuidad, conversación y recurrencia.
+
+Recorrido recomendado:
+
+**GOOGLE / BÚSQUEDA → WEB → REDES → WEB**
+
+La primera visita puede llegar desde un buscador, una recomendación o una mención. La web debe resolver rápidamente quién es el autor, qué obra ofrece, por qué puede interesar y dónde seguirlo. Las redes permiten continuar el vínculo. Desde esas redes, el visitante debe poder volver fácilmente a la web para profundizar, consultar la obra o acceder a una acción concreta.
+
+Reglas de implementación y entrega:
+
+- Instagram y Facebook deben mostrarse de forma visible en la sección Contacto/Vínculo.
+- El correo queda como canal directo e institucional.
+- El teléfono personal no se muestra como dato general cuando no sea necesario.
+- WhatsApp se reserva preferentemente para una **acción concreta**, por ejemplo solicitar un ejemplar, y puede ubicarse detrás de una página intermedia para reducir exposición directa del número.
+- Al entregar la web, recomendar al autor colocar la **URL oficial del sitio en la biografía de Instagram y en la información/presentación de Facebook**.
+- En publicaciones relevantes, el autor puede volver a enlazar la web cuando necesite llevar al lector a información más completa, compra, agenda o contacto.
+- La web no reemplaza las redes ni las redes reemplazan la web: se diseñan como un circuito de ida y vuelta.
+
+Criterio estratégico: una segunda visita desde redes tiene más valor contextual que la primera visita desde Google, porque el usuario ya reconoce al autor o la obra. La web debe estar preparada para recibir esa visita con información estable y acciones claras.
+
+### Footer estándar — identidad del cliente + firma de desarrollo
+
+Todas las webs generadas desde la plantilla incluyen un footer común con **dos zonas diferenciadas**:
+
+1. **Zona del cliente** — nombre, descripción breve, ubicación, enlaces propios y copyright.
+2. **Zona de firma de desarrollo** — atribución discreta con el texto “Diseño y desarrollo web por” y la marca gráfica del proyecto, enlazada a la página oficial de presentación del servicio.
+
+La firma no debe competir visualmente con la identidad del autor. Usa el color secundario del sitio y toma el color de acento al interactuar. La marca está implementada como máscara monocromática para adaptarse automáticamente a la paleta de cada web.
+
+La configuración vive en `site.ts`:
+
+```ts
+footerLine: 'Escritor/a · Ciudad, País',
+credit: {
+  enabled: true,
+  label: 'Diseño y desarrollo web por',
+  url: 'https://dejavuurbe.github.io/pierre-menard-web/proyecto/',
+},
+```
+
+Reglas:
+
+- la zona del cliente tiene prioridad visual;
+- la firma aparece en todas las páginas porque forma parte de `BaseLayout`;
+- no utiliza fondo propio;
+- en móvil se apila debajo del copyright;
+- puede desactivarse excepcionalmente con `enabled: false`;
+- el enlace de la firma debe apuntar siempre a la página oficial vigente del servicio.
+
+
+### Enlaces móviles a redes sociales — usar enlace de “Compartir perfil”
+
+Para Instagram y Facebook, cuando el objetivo es que el visitante abra correctamente el perfil desde celular, se prioriza el **enlace generado por la propia opción “Compartir perfil” de la aplicación** frente a construir manualmente una URL a partir del nombre de usuario.
+
+Motivo práctico validado en móvil:
+- el enlace compartido por la propia red resuelve mejor hacia la app instalada;
+- reduce pasos intermedios y comportamientos inconsistentes del navegador;
+- evita depender de variantes manuales del nombre de usuario;
+- mantiene una experiencia más directa desde la web hacia la red social.
+
+Regla operativa:
+1. pedir al autor que abra su perfil en Instagram o Facebook;
+2. usar la opción **Compartir perfil**;
+3. copiar el enlace generado por la aplicación;
+4. probarlo desde celular;
+5. usar ese enlace como URL oficial en la web si resuelve correctamente.
+
+El nombre de usuario puede seguir mostrándose como texto visible, pero la navegación debe usar preferentemente el enlace compartido por la propia plataforma cuando éste funcione mejor.
+
+
+### Conversión de obra sin plataforma de pago — página intermedia + WhatsApp
+
+Cuando el autor todavía no dispone de tienda o checkout directo, evitar un CTA débil o ambiguo como “Consultar”.
+
+Flujo recomendado:
+
+**Libro/Obra → “Quiero mi ejemplar” → página intermedia → WhatsApp**
+
+La página intermedia:
+- agradece el interés;
+- confirma que el visitante está avanzando hacia la obtención del libro;
+- explica que se abrirá WhatsApp;
+- ofrece un botón con mensaje precargado;
+- puede mantener el correo como alternativa.
+
+Privacidad:
+- no mostrar el teléfono personal como texto en la sección general de Contacto salvo decisión expresa;
+- reservar WhatsApp para una acción concreta;
+- el número seguirá estando técnicamente presente en el enlace `wa.me`, pero una página intermedia reduce su exposición casual.
+
+### Navegación interna móvil — Astro
+
+En sitios Astro multipágina, priorizar una navegación interna fluida para evitar la sensación de recarga completa en celular.
+
+Referencia validada:
+- usar `ClientRouter` de `astro:transitions` en el layout común;
+- activar `prefetch` para enlaces internos cuando sea apropiado;
+- probar Inicio → Actividad → Compra/solicitud → Atrás en un celular real;
+- los enlaces externos a redes, correo y WhatsApp mantienen su navegación externa normal.
+
+Si aparece un destello o transición visible durante el prototipo en `github.io`, distinguir entre un problema interno de navegación y el comportamiento del hosting temporal. La prueba final se repite sobre el dominio oficial.
+
+
+## Estados de contenido y entrega
+
+La compilación y GitHub Pages acreditan únicamente la infraestructura: repositorio creado y sitio publicado. No certifican que la web esté terminada. El estado de entrega se mantiene por separado en `CLIENTE.md`: `EN CONSTRUCCIÓN` hasta que la lista final esté aprobada; recién entonces `TERMINADA`. En prototipo, redes y datos ausentes muestran icono o campo `Pendiente`, sin enlaces falsos. Si el cliente decide expresamente no usar un dato o una red, se marca `omitted` y no se muestra. Los datos confirmados se activan solo con fuente/enlace real.
