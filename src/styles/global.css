@@ -591,10 +591,12 @@ body[data-surface="cards"] .section > .container {
   background:
     linear-gradient(
       112deg,
-      rgba(248, 239, 225, .94),
-      rgba(239, 222, 201, .90)
+      rgba(248, 239, 225, .80),
+      rgba(239, 222, 201, .74)
     );
   border-color: rgba(94, 65, 47, .28);
+  -webkit-backdrop-filter: blur(7px) saturate(108%);
+  backdrop-filter: blur(7px) saturate(108%);
 }
 
 /* En móvil priorizar lectura y evitar que un único petroglifo domine por recorte. */
