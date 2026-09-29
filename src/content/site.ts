@@ -75,7 +75,7 @@ export const site = {
   ] as Social[],
   author: {
     shortBio: 'Javier Serrano es escritor, docente y profesor de Historia. Nació en Jujuy y vive actualmente en González Catán, Buenos Aires.',
-    longBio: 'Javier Serrano nació en Jujuy y se radicó en Buenos Aires. Es docente, profesor de Historia y autor de Migrante. Su poesía se vincula con la experiencia de migración, la identidad de su tierra natal, el folklore, los temas sociales y el terruño; hoy ese mapa vital también incluye González Catán. La redacción biográfica definitiva permanece pendiente de aprobación del autor.'
+    longBio: 'Javier Serrano nació en Jujuy y se radicó en Buenos Aires. Es docente, profesor de Historia y autor de Migrante. Su poesía se vincula con la experiencia de migración, la identidad de su tierra natal, el folklore, los temas sociales y el terruño; hoy ese mapa vital también incluye González Catán. La redacción biográfica definitiva permanece pendiente de aprobación del autor.',
     photo: '/images/autor-placeholder.svg',
     photoState: 'pending' as PendingState,
     bioState: 'pending' as PendingState,
