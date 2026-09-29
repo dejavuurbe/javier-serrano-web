@@ -1,31 +1,23 @@
 :root {
-  --color-bg: #eef1f2;
-  --color-surface: #f8f4ec;
-  --color-text: #1d2529;
-  --color-muted: #667078;
-  --color-accent: #9b7857;
+  --color-bg: #e6dcc8;
+  --color-surface: #f6efe2;
+  --color-text: #342b23;
+  --color-muted: #6d5f50;
+  --color-accent: #9a512e;
   --color-accent-contrast: #ffffff;
-  --color-border: #c8c6bf;
+  --color-border: #c9b79c;
 
   --font-display: Georgia, 'Times New Roman', serif;
   --font-body: Arial, Helvetica, sans-serif;
 
   --max-width: 1180px;
 
-  /* Escala vertical estándar de la Web Nivel 1 */
   --header-height: 76px;
   --section-full: min(calc(100svh - var(--header-height)), 1004px);
   --section-half: calc(var(--section-full) / 2);
   --section-full-pad-y: clamp(1.8rem, 3.2vh, 2.8rem);
   --section-half-pad-y: clamp(1rem, 2vh, 1.8rem);
 
-  --radius: 18px;
-  --shadow: 0 18px 50px rgba(29, 37, 41, 0.12);
-
-  /* Variante LAB: fondo fijo + plano de vidrio */
-  --glass-bg: rgba(248, 244, 236, 0.62);
-  --glass-bg-strong: rgba(248, 244, 236, 0.78);
-  --glass-border: rgba(255, 255, 255, 0.52);
-  --glass-shadow: 0 24px 70px rgba(29, 37, 41, 0.16);
-  --glass-blur: 18px;
+  --radius: 28px;
+  --shadow: 0 18px 46px rgba(54, 44, 32, 0.11);
 }

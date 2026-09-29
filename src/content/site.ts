@@ -1,6 +1,10 @@
 export type SiteLevel = 1 | 2 | 3;
 export type PendingState = 'confirmed' | 'pending' | 'omitted';
 export type SocialPlatform = 'instagram' | 'facebook' | 'youtube' | 'tiktok' | 'x' | 'linkedin' | 'web';
+export type VisualBackground = 'clean' | 'chromatic' | 'textured' | 'scenic';
+export type VisualSurface = 'open' | 'block' | 'cards' | 'glass';
+export type VisualCharacter = 'editorial' | 'organic' | 'cinematic' | 'graphic';
+export type VisualImage = 'document' | 'framed' | 'integrated' | 'hero';
 
 type Link = { label: string; url: string };
 type Social = { platform: SocialPlatform; label: string; state: PendingState; url?: string };
@@ -44,14 +48,22 @@ export const site = {
   name: 'Javier Serrano',
   canonicalName: 'Javier Serrano',
   searchVariants: ['Javier Serrano Migrante', 'Javier Serrano escritor'] as string[],
-  role: 'Escritor · Autor de Migrante',
-  tagline: 'Una presencia autoral centrada en Migrante y su trabajo poético.',
+  role: 'Escritor · Docente · Profesor de Historia',
+  tagline: 'Poesía entre Jujuy y González Catán: migración, memoria, terruño e identidad.',
   description: 'Sitio de Javier Serrano, autor de Migrante. Prototipo construido con información pública verificada y datos pendientes claramente identificados.',
   url: 'https://dejavuurbe.github.io/javier-serrano-web/',
   email: '',
   emailState: 'pending' as PendingState,
-  location: '',
+  location: 'González Catán, Buenos Aires',
   footerLine: 'Javier Serrano · Migrante',
+  visual: {
+    background: 'textured' as VisualBackground,
+    surface: 'cards' as VisualSurface,
+    character: 'organic' as VisualCharacter,
+    image: 'integrated' as VisualImage,
+    backgroundImage: '',
+  },
+
   credit: {
     enabled: true,
     label: 'Diseño y desarrollo web por',
@@ -62,8 +74,8 @@ export const site = {
     { platform: 'facebook', label: 'Facebook', state: 'pending' },
   ] as Social[],
   author: {
-    shortBio: 'Javier Serrano es autor de Migrante, una obra de poesía con ficha comercial pública.',
-    longBio: 'Javier Serrano es autor de Migrante. También aparecen textos suyos en la antología Vivan las luchas colectivas II. La biografía pública definitiva está pendiente de aprobación del autor.',
+    shortBio: 'Javier Serrano es escritor, docente y profesor de Historia. Nació en Jujuy y vive actualmente en González Catán, Buenos Aires.',
+    longBio: 'Javier Serrano nació en Jujuy y se radicó en Buenos Aires. Es docente, profesor de Historia y autor de Migrante. Su poesía se vincula con la experiencia de migración, la identidad de su tierra natal, el folklore, los temas sociales y el terruño; hoy ese mapa vital también incluye González Catán. La redacción biográfica definitiva permanece pendiente de aprobación del autor.',
     photo: '/images/autor-placeholder.svg',
     photoState: 'pending' as PendingState,
     bioState: 'pending' as PendingState,
