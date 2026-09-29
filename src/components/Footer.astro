@@ -40,7 +40,7 @@ const year = new Date().getFullYear();
   .site-footer {
     padding: 3rem 0 1.4rem;
     border-top: 1px solid rgba(255, 244, 226, .24);
-    background: rgba(50, 38, 29, .66);
+    background: rgba(50, 38, 29, .20);
     -webkit-backdrop-filter: blur(10px) saturate(112%);
     backdrop-filter: blur(10px) saturate(112%);
     color: #f7ead8;
@@ -116,7 +116,7 @@ const year = new Date().getFullYear();
   }
 
   @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-    .site-footer { background: rgba(50, 38, 29, .90); }
+    .site-footer { background: rgba(50, 38, 29, .48); }
   }
 
   @media (max-width: 620px) {
