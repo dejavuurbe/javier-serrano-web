@@ -591,12 +591,12 @@ body[data-surface="cards"] .section > .container {
   background:
     linear-gradient(
       112deg,
-      rgba(248, 239, 225, .80),
-      rgba(239, 222, 201, .74)
+      rgba(248, 239, 225, .58),
+      rgba(239, 222, 201, .50)
     );
   border-color: rgba(94, 65, 47, .28);
-  -webkit-backdrop-filter: blur(7px) saturate(108%);
-  backdrop-filter: blur(7px) saturate(108%);
+  -webkit-backdrop-filter: blur(3px) saturate(105%);
+  backdrop-filter: blur(3px) saturate(105%);
 }
 
 /* En móvil priorizar lectura y evitar que un único petroglifo domine por recorte. */
@@ -604,5 +604,21 @@ body[data-surface="cards"] .section > .container {
   body[data-bg="scenic"]::before {
     background-position: 52% center;
     filter: saturate(.76) contrast(.94) brightness(.88);
+  }
+}
+
+
+/* v4.2 — transparencia visible en tarjetas sobre fondo rupestre */
+body[data-surface="cards"] .card {
+  background: rgba(248, 239, 225, .54);
+  border-color: rgba(94, 65, 47, .24);
+  -webkit-backdrop-filter: blur(3px) saturate(105%);
+  backdrop-filter: blur(3px) saturate(105%);
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  body[data-surface="cards"] .section > .container,
+  body[data-surface="cards"] .card {
+    background: rgba(244, 229, 209, .72);
   }
 }
