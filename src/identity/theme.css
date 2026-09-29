@@ -1,19 +1,20 @@
 :root {
-  --color-bg: #d8c6a4;
-  --color-surface: #f1e6d2;
-  --color-text: #2d2721;
-  --color-muted: #65584c;
-  --color-accent: #a94f2d;
-  --color-accent-contrast: #fff8ed;
-  --color-border: #b69d78;
+  --color-bg: #cdbb9f;
+  --color-surface: #f3e8d6;
+  --color-text: #25292a;
+  --color-muted: #655c52;
+  --color-accent: #9b5435;
+  --color-accent-contrast: #fff9ef;
+  --color-border: #b59c79;
 
-  /* Identidad Javier: terruño + migración + conurbano */
-  --identity-earth: #a94f2d;
-  --identity-ochre: #d3a34a;
-  --identity-olive: #68704d;
-  --identity-urban: #52666b;
-  --identity-night: #2f3b3d;
-  --identity-sand: #e6d2ad;
+  --identity-earth: #9b5435;
+  --identity-ochre: #c99645;
+  --identity-olive: #65705a;
+  --identity-sky: #72858e;
+  --identity-urban: #4f6266;
+  --identity-night: #2e3739;
+  --identity-sand: #dfc7a4;
+  --identity-road: #a98767;
 
   --font-display: Georgia, 'Times New Roman', serif;
   --font-body: Arial, Helvetica, sans-serif;
@@ -25,6 +26,6 @@
   --section-full-pad-y: clamp(1.8rem, 3.2vh, 2.8rem);
   --section-half-pad-y: clamp(1rem, 2vh, 1.8rem);
 
-  --radius: 22px;
-  --shadow: 0 20px 48px rgba(45, 39, 33, 0.14);
+  --radius: 18px;
+  --shadow: 0 20px 52px rgba(44, 39, 34, 0.16);
 }
