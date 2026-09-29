@@ -86,7 +86,7 @@ export const site = {
     surface: 'cards' as VisualSurface,
     character: 'organic' as VisualCharacter,
     image: 'integrated' as VisualImage,
-    backgroundImage: '',
+    backgroundImage: '/images/fondo-rupestre-javier.jpg',
   },
 
   credit: {
