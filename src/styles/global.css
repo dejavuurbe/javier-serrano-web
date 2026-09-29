@@ -340,3 +340,109 @@ body[data-image="hero"] :is(.portrait, .cover) {
     max-height: 70svh;
   }
 }
+
+
+/* =========================================================
+   CAPA DE IDENTIDAD — JAVIER SERRANO
+   Jujuy ↔ González Catán · terruño · migración · historia
+   ========================================================= */
+
+body[data-bg="textured"]::before {
+  background:
+    linear-gradient(152deg, transparent 0 52%, rgba(82,102,107,.12) 52% 66%, transparent 66%),
+    radial-gradient(circle at 14% 16%, rgba(211,163,74,.34) 0 8%, transparent 28%),
+    radial-gradient(circle at 88% 84%, rgba(82,102,107,.22) 0 10%, transparent 30%),
+    repeating-linear-gradient(0deg, rgba(45,39,33,.035) 0 1px, transparent 1px 6px),
+    linear-gradient(135deg, #e5d1aa 0%, #d8c6a4 46%, #b9afa0 100%);
+}
+
+/* Trama abstracta: eco de tejido, mapa y recorrido. */
+body[data-bg="textured"]::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: .32;
+  background:
+    repeating-linear-gradient(45deg,
+      transparent 0 18px,
+      rgba(169,79,45,.12) 18px 20px,
+      transparent 20px 38px),
+    repeating-linear-gradient(-45deg,
+      transparent 0 26px,
+      rgba(104,112,77,.08) 26px 28px,
+      transparent 28px 52px);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.2));
+}
+
+body[data-surface="cards"] .section > .container {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(110deg,
+      rgba(241,230,210,.96),
+      rgba(241,230,210,.86));
+  border: 1px solid rgba(182,157,120,.82);
+  border-left: 7px solid var(--identity-earth);
+  border-radius: 18px 26px 26px 18px;
+}
+
+body[data-surface="cards"] .section:nth-of-type(2) > .container {
+  border-left-color: var(--identity-ochre);
+}
+
+body[data-surface="cards"] .section:nth-of-type(3) > .container {
+  border-left-color: var(--identity-urban);
+}
+
+body[data-surface="cards"] .section > .container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: min(300px, 38%);
+  height: 8px;
+  background:
+    repeating-linear-gradient(90deg,
+      var(--identity-earth) 0 24px,
+      var(--identity-ochre) 24px 42px,
+      var(--identity-olive) 42px 58px,
+      var(--identity-urban) 58px 76px);
+}
+
+body[data-character="organic"] h1,
+body[data-character="organic"] h2 {
+  letter-spacing: -.018em;
+}
+
+body[data-character="organic"] .eyebrow {
+  color: var(--identity-earth);
+  letter-spacing: .18em;
+}
+
+body[data-image="integrated"] .media-item::after {
+  inset: 7% -5% -7% 7%;
+  border-radius: 34% 66% 38% 62% / 48% 36% 64% 52%;
+  background:
+    linear-gradient(145deg,
+      rgba(211,163,74,.38),
+      rgba(169,79,45,.22) 48%,
+      rgba(82,102,107,.22));
+}
+
+.project-status {
+  background: rgba(47,59,61,.92) !important;
+  color: #efe4d1 !important;
+  border-color: rgba(255,255,255,.1) !important;
+}
+
+.project-status strong {
+  color: #fff7e8 !important;
+}
+
+@media (max-width: 919px) {
+  body[data-surface="cards"] .section > .container {
+    border-left-width: 5px;
+  }
+}
