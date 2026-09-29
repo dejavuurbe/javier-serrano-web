@@ -11,6 +11,7 @@ body {
   font-family: var(--font-body);
   line-height: 1.65;
   background: var(--color-bg);
+  overflow-x: clip;
 }
 
 img {
@@ -63,6 +64,7 @@ h1, h2, h3 {
   font-family: var(--font-display);
   line-height: 1.08;
   text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 h1 {
@@ -375,7 +377,7 @@ body[data-bg="scenic"]::after {
 
 body[data-surface="cards"] .section > .container {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background: linear-gradient(110deg, rgba(243,232,214,.95), rgba(243,232,214,.86));
   border: 1px solid rgba(181,156,121,.82);
   border-radius: 12px;
@@ -437,4 +439,34 @@ body[data-image="integrated"] .media-item::after {
 
 @media(max-width:919px){
   body[data-surface="cards"] .section > .container{border-radius:10px}
+}
+
+
+/* QA overflow — identidad v3 */
+.hero-grid > *,
+.book-grid > *,
+.previous-grid > *,
+.territory-grid > * {
+  min-width: 0;
+}
+
+.lead,
+.book-motto,
+.previous-note,
+.pending-note,
+.button,
+.eyebrow {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 620px) {
+  .container {
+    width: min(calc(100% - 1rem), var(--max-width));
+  }
+
+  .button {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
 }
