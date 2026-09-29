@@ -470,3 +470,91 @@ body[data-image="integrated"] .media-item::after {
     text-align: center;
   }
 }
+
+
+/* =========================================================
+   IDENTIDAD v4 — FONDO RUPESTRE + ACENTO WIPHALA
+   Inspiración territorial de Jujuy sin copiar motivos arqueológicos exactos.
+   ========================================================= */
+
+body[data-bg="scenic"]::before {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(185,118,68,.18) 0 10%, transparent 34%),
+    radial-gradient(circle at 86% 78%, rgba(86,76,60,.12) 0 12%, transparent 36%),
+    linear-gradient(180deg,#c9b08a 0%,#b8946f 42%,#9c775c 100%);
+}
+
+/* textura mineral irregular */
+body[data-bg="scenic"]::after {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  opacity:.46;
+  background:
+    radial-gradient(circle at 12% 21%, rgba(79,57,42,.16) 0 1.5px, transparent 2px),
+    radial-gradient(circle at 37% 63%, rgba(87,61,44,.12) 0 1.3px, transparent 2px),
+    radial-gradient(circle at 76% 29%, rgba(98,69,49,.14) 0 1.4px, transparent 2px),
+    linear-gradient(17deg, transparent 0 47%, rgba(74,51,38,.055) 48%, transparent 49%),
+    linear-gradient(-11deg, transparent 0 51%, rgba(255,243,220,.08) 52%, transparent 53%);
+  background-size: 140px 140px,180px 180px,220px 220px,100% 100%,100% 100%;
+}
+
+/* capa de glifos abstractos propios: espiral, zigzag, cruz andina simplificada */
+body[data-bg="scenic"] .site-header::after {
+  content:"";
+  position:fixed;
+  inset:76px 0 0;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.115;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='280' viewBox='0 0 360 280'%3E%3Cg fill='none' stroke='%23584332' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M64 63c28-30 76-9 67 28-7 29-52 32-63 5-8-21 15-39 35-30 13 6 15 24 5 33'/%3E%3Cpath d='M222 54l20 18-18 20 20 18-19 21'/%3E%3Cpath d='M75 197h18v-18h18v18h18v18h-18v18H93v-18H75z'/%3E%3Cpath d='M222 194l20-20 20 20-20 20-20-20zm20-36v72'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:360px 280px;
+  background-repeat:repeat;
+}
+
+/* tarjetas sobre piedra: claras, con suficiente separación del fondo */
+body[data-surface="cards"] .section > .container {
+  background:linear-gradient(112deg,rgba(246,236,220,.93),rgba(239,223,202,.86));
+  border-color:rgba(110,80,57,.24);
+  box-shadow:0 22px 60px rgba(48,36,28,.18);
+}
+
+/* guarda inspirada en wiphala, usada solo como acento */
+body[data-surface="cards"] .section > .container::after {
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:min(260px,38%);
+  height:7px;
+  background:
+    linear-gradient(90deg,
+      #d31828 0 14.28%,
+      #7a3f8f 14.28% 28.56%,
+      #23549e 28.56% 42.84%,
+      #49a163 42.84% 57.12%,
+      #f3d41b 57.12% 71.4%,
+      #df9024 71.4% 85.68%,
+      #ffffff 85.68% 100%);
+  opacity:.82;
+}
+
+body[data-surface="cards"] .section:nth-of-type(even) > .container::after {
+  left:0;
+  right:auto;
+  transform:scaleX(-1);
+}
+
+@media(max-width:700px){
+  body[data-bg="scenic"] .site-header::after{
+    background-size:260px 202px;
+    opacity:.09;
+  }
+  body[data-surface="cards"] .section > .container::after{
+    width:48%;
+    height:5px;
+  }
+}
