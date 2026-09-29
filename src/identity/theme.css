@@ -1,11 +1,11 @@
 :root {
-  --color-bg: #cdbb9f;
-  --color-surface: #f3e8d6;
+  --color-bg: #b99672;
+  --color-surface: #f2e3cf;
   --color-text: #25292a;
   --color-muted: #655c52;
   --color-accent: #9b5435;
   --color-accent-contrast: #fff9ef;
-  --color-border: #b59c79;
+  --color-border: #a98b68;
 
   --identity-earth: #9b5435;
   --identity-ochre: #c99645;
@@ -13,7 +13,7 @@
   --identity-sky: #72858e;
   --identity-urban: #4f6266;
   --identity-night: #2e3739;
-  --identity-sand: #dfc7a4;
+  --identity-sand: #d8b88e;
   --identity-road: #a98767;
 
   --font-display: Georgia, 'Times New Roman', serif;
